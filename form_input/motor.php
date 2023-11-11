@@ -1,6 +1,15 @@
 <?php
 include '../auth/koneksi.php';
 
+// Process the form submission
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Your form processing logic here...
+
+    // Redirect to the edit page after processing the form
+    header("Location: ../edit/edit_motor.php?vehicleId=" . $_GET['vehicleId']);
+    exit(); // Make sure to call exit() after header to prevent further execution
+}
+
 $query_vec = mysqli_query($mysqli, "SELECT * FROM motor ");
 $numb = 0; // Initialize the variable outside of the loop
 ?>
@@ -9,7 +18,8 @@ $numb = 0; // Initialize the variable outside of the loop
 
 <center>
   <h2>Form Motor</h2>
-  <form action="edit_motor.php?vehicleId=<?php echo $_GET['vehicleId'];?>" method="post">
+  <form action="../edit/edit_motor.php?vehicleId=" . $_GET['vehicleId']"" method="post">
+ <!-- Remove the action attribute to submit to the same page -->
     <div class="form-group">
       <label for="cargoSize">Cargo Size</label>
       <input type="cargoSize" class="form-control" id="cargoSize" name="cargoSize" placeholder="cargoSize" required>
@@ -21,7 +31,4 @@ $numb = 0; // Initialize the variable outside of the loop
 
     <button type="submit" class="btn btn-primary">Save</button>
   </form>
-
-  <?php
-  // header("location:form-edit-order.php")
-  ?>
+</center>
