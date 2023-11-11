@@ -30,16 +30,7 @@
 	<li class="nav-item">
 	  <a class="nav-link" href="tabel_order_vec.php">Order</a>
 	</li>
-	<li class="nav-item dropdown">
-	  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-		Form Kendaraan
-	  </a>
-	  <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-		<a class="dropdown-item" href="form-edit-order.php">Form Order Kendaraan</a>
-		<a class="dropdown-item" href="#">Link 1</a>
-		<a class="dropdown-item" href="#">Link 2</a>
-	  </div>
-	</li>
+
   </ul>
 </div>
 </nav>

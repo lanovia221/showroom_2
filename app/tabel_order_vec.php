@@ -7,15 +7,21 @@ $customerId = isset($_GET['customerId']) ? $_GET['customerId'] : null;
 
 // Check if customerId is provided
 if (!$customerId) {
-    echo "Customer Id not provided.";
-    exit();
+    // If customerId is not provided, fetch all orders
+    $query = mysqli_query($mysqli, "SELECT orders.*, customer.name as customer_name, vehicle.model,
+                                    (SELECT SUM(totalAmount) FROM orders o WHERE o.customerId = customer.customerId) as total_amount
+                                    FROM orders
+                                    JOIN customer ON orders.customerId = customer.customerId
+                                    JOIN vehicle ON orders.vechicleId = vehicle.vehicleId");
+} else {
+    // If customerId is provided, fetch orders for the specific customer
+    $query = mysqli_query($mysqli, "SELECT orders.*, customer.name as customer_name, vehicle.model,
+                                    (SELECT SUM(totalAmount) FROM orders o WHERE o.customerId = customer.customerId) as total_amount
+                                    FROM orders
+                                    JOIN customer ON orders.customerId = customer.customerId
+                                    JOIN vehicle ON orders.vechicleId = vehicle.vehicleId
+                                    WHERE orders.customerId = $customerId");
 }
-
-$query = mysqli_query($mysqli, "SELECT orders.*, customer.name as customer_name, vehicle.model
-                                FROM orders
-                                JOIN customer ON orders.customerId = customer.customerId
-                                JOIN vehicle ON orders.vechicleId = vehicle.vehicleId
-                                WHERE orders.customerId = $customerId");
 
 $numb = 0; // Initialize the variable outside of the loop
 ?>
@@ -25,7 +31,7 @@ $numb = 0; // Initialize the variable outside of the loop
     <table class="table table-bordered table-responsive" width="100%">
         <thead class="bg-warning">
             <tr>
-                <th>No</th><th>customer id</th><th>name customer</th><th>vechicle id</th><th>order mobil</th><th>total amount</th>
+                <th>No</th><th>customer id</th><th>name customer</th><th>vechicle id</th><th>order mobil</th><th>total amount</th><th>Total Amount for Customer</th>
             </tr>
         </thead>
         <tbody>
@@ -40,6 +46,7 @@ $numb = 0; // Initialize the variable outside of the loop
                 <td><?php echo $result['vechicleId']; ?></td>
                 <td><?php echo $result['model']; ?></td>
                 <td><?php echo $result['totalAmount']; ?></td>
+                <td><?php echo $result['total_amount']; ?></td>
             </tr>
         <?php
         }

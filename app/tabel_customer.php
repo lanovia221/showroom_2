@@ -30,7 +30,7 @@ $numb = 0; // Initialize the variable outside of the loop
                 <td>
                 <a href='delete-data.php?customerId=<?php echo $result['customerId'];?>' class='btn btn-sm btn-danger'>Delete</a>
                 <a href='form-edit.php?customerId=<?php echo $result['customerId'];?>&&page=edit' class='btn btn-sm btn-warning'>Edit</a>
-
+                <a href='form-edit-order.php?customerId=<?php echo $result['customerId'];?>&&page=edit' class='btn btn-sm btn-success'>Buy</a>
                 </td>
                 
             </tr>
