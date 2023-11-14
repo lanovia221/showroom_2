@@ -19,19 +19,23 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["submit"])) {
     <h2>Form Edit Kendaraan</h2>
     <form action="edit-data-order.php?vehicleId=<?php echo $_GET['vehicleId'];?>" method="post">
         <div class="form-group">
-            <label for="model">Model</label>
+            <label for="inputModel">Model</label>
             <input type="text" class="form-control" name="model" placeholder="model" required>
         </div>
         <div class="form-group">
-            <label for="year">Year</label>
+            <label for="inputYear">Year</label>
             <input type="text" class="form-control" name="year" placeholder="year" required>
         </div>
         <div class="form-group">
-            <label for="manufactur">Manufacture</label>
+            <label for="inputPassengers">Year</label>
+            <input type="text" class="form-control" name="passengers" placeholder="passengers" required>
+    </div>
+        <div class="form-group">
+            <label for="inputManufactur">Manufacture</label>
             <input type="text" class="form-control" name="manufactur" placeholder="manufactur" required>
         </div>
         <div class="form-group">
-            <label for="price">Price</label>
+            <label for="inputPrice">Price</label>
             <input type="text" class="form-control" name="price" placeholder="price" required>
         </div>
         <div class="selecter">

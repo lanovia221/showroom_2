@@ -31,7 +31,7 @@ $numb = 0; // Initialize the variable outside of the loop
             <td>Type</td>
             <td>
             <a href='delete-data-order.php?vehicleId=<?php echo $result_vec['vehicleId'];?>' class='btn btn-sm btn-danger'>Delete</a>
-            <a href='edit-data-order.php?vehicleId=<?php echo $result_vec['vehicleId'];?>&&page=edit' class='btn btn-sm btn-warning'>Edit</a>
+            <a href='form-edit-order.php?vehicleId=<?php echo $result_vec['vehicleId'];?>&&page=edit' class='btn btn-sm btn-warning'>Edit</a>
             </td>
         </tr>
     <?php 
