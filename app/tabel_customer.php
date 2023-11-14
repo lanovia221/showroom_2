@@ -8,7 +8,9 @@ $numb = 0; // Initialize the variable outside of the loop
 
 <center>
     <h2>Showroom UC</h2>
-    <a href='tambah-data.php'class='btn btn-sm btn-primary' style='float:left;'>Add Data</a>
+    <form action='controller_customer.php' method='post'>
+        <button type='submit' class='btn btn-sm btn-primary' style='float:left;' name='tambahData'>Add Data</button>
+    </form>
     <table class="table table-bordered table-responsive" width="100%">
         <thead class="bg-warning">
             <tr>
@@ -28,9 +30,9 @@ $numb = 0; // Initialize the variable outside of the loop
                 <td><?php echo $result['idCard']; ?></td>
                 <td><?php echo $result['customerId']; ?></td>
                 <td>
-                <a href='delete-data.php?customerId=<?php echo $result['customerId'];?>' class='btn btn-sm btn-danger'>Delete</a>
+                <a href='controller_customer.php?customerId=<?php echo $result['customerId'];?>' class='btn btn-sm btn-danger'>Delete</a>
                 <a href='form-edit.php?customerId=<?php echo $result['customerId'];?>&&page=edit' class='btn btn-sm btn-warning'>Edit</a>
-                <a href='form-edit-order.php?customerId=<?php echo $result['customerId'];?>&&page=edit' class='btn btn-sm btn-success'>Buy</a>
+                <a href='tabel_order_customer.php?customerId=<?php echo $result['customerId'];?>&&page=edit' class='btn btn-sm btn-success'>Buy</a>
                 </td>
                 
             </tr>
