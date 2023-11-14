@@ -7,7 +7,9 @@ $numb = 0; // Initialize the variable outside of the loop
 ?>
 <center>
 <h2>Vechicles</h2>
-<a href='tambah-data-order.php'class='btn btn-sm btn-primary' style='float:left;'>Add Data</a>
+<form action='controller_vehicle.php' method='post'>
+    <button type='submit' class='btn btn-sm btn-primary' style='float:left;' name='tambahDataVeh'>Add Data</button>
+</form>
 <table class="table table-bordered table-responsive" width="100%">
     <thead class="bg-warning">
         <tr>
@@ -30,7 +32,7 @@ $numb = 0; // Initialize the variable outside of the loop
             <td><?php echo $result_vec['price']; ?></td>
             <td>Type</td>
             <td>
-            <a href='delete-data-order.php?vehicleId=<?php echo $result_vec['vehicleId'];?>' class='btn btn-sm btn-danger'>Delete</a>
+            <a href='controller_vehicle.php?vehicleId=<?php echo $result_vec['vehicleId'];?>' class='btn btn-sm btn-danger'>Delete</a>
             <a href='form-edit-order.php?vehicleId=<?php echo $result_vec['vehicleId'];?>&&page=edit' class='btn btn-sm btn-warning'>Edit</a>
             </td>
         </tr>
