@@ -9,7 +9,7 @@ $customerId = isset($_GET['customerId']) ? $_GET['customerId'] : null;
 if (!$customerId) {
     // If customerId is not provided, fetch all orders
     $query = mysqli_query($mysqli, "SELECT orders.*, customer.name as customer_name, vehicle.model,
-                                    (SELECT SUM(totalAmount) FROM order-s o WHERE o.customerId = customer.customerId) as total_amount
+                                    (SELECT SUM(totalAmount) FROM orders o WHERE o.customerId = customer.customerId) as total_amount
                                     FROM orders
                                     JOIN customer ON orders.customerId = customer.customerId
                                     JOIN vehicle ON orders.vechicleId = vehicle.vehicleId");
